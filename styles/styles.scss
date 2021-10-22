@@ -1,0 +1,305 @@
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@keyframes pkmn-run {
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+@font-face {
+  font-family: "Pokemon";
+  src: url("../fonts/Pokemon-Pixel-Font.woff2") format("woff2"),
+    url("../fonts/Pokemon-Pixel-Font.woff") format("woff"),
+    url("../fonts/Pokemon-Pixel-Font.ttf") format("ttf");
+}
+
+$pokemon-red: #ee1515;
+$pokemon-black: #222224;
+$pokemon-white: #f0f0f0;
+$pokemon-ultra-white: #ffffff;
+
+$normal-type: #a8a77a;
+$fighting-type: #c22e28;
+$flying-type: #a98ff3;
+$poison-type: #a33ea1;
+$ground-type: #e2bf65;
+$rock-type: #b6a136;
+$bug-type: #a6b91a;
+$ghost-type: #735797;
+$steel-type: #b7b7ce;
+$fire-type: #ee8130;
+$water-type: #6390f0;
+$grass-type: #7ac74c;
+$electric-type: #f7d02c;
+$psychic-type: #f95587;
+$ice-type: #96d9d6;
+$dragon-type: #6f35fc;
+$dark-type: #705746;
+$fairy-type: #d685ad;
+
+$mobile-container: 300px;
+$tablet-container: 500px;
+$desktop-container: 900px;
+
+* {
+  font-family: "Pokemon";
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  background-color: $pokemon-red;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: $mobile-container;
+    margin: 0 auto 2rem;
+    padding: 2rem 0 0;
+    @include tablet {
+      width: $tablet-container;
+    }
+    @include desktop {
+      width: $desktop-container;
+    }
+  }
+  &__title {
+    margin: 0 auto;
+    font-size: 4rem;
+    color: $pokemon-white;
+    transition: 0.5s;
+    &:hover {
+      letter-spacing: 0.25rem;
+      @include tablet {
+        letter-spacing: 0.5rem;
+      }
+    }
+    @include tablet {
+      font-size: 3rem;
+    }
+  }
+  &__pikachu {
+    max-width: 100px;
+    animation: pkmn-run 10s;
+    animation-iteration-count: infinite;
+    transition-timing-function: ease-out;
+  }
+}
+
+.primary-nav {
+  padding: 1rem 0;
+  display: flex;
+  margin: 0 auto;
+  &__link {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: $pokemon-ultra-white;
+    font-size: 2rem;
+    border-bottom: 1px dotted $pokemon-red;
+    &:hover {
+      border-bottom: 1px dotted $pokemon-black;
+    }
+  }
+}
+
+.instructions {
+  background-color: $pokemon-black;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: $mobile-container;
+    margin: 0 auto;
+    @include tablet {
+      width: $tablet-container;
+    }
+    @include desktop {
+      width: $desktop-container;
+    }
+  }
+  &__text {
+    font-size: 1rem;
+    margin: 1rem auto;
+    color: $pokemon-white;
+    @include tablet {
+      font-size: 1.25rem;
+    }
+    &--first-line {
+      font-size: 1.25rem;
+      font-weight: bold;
+      @include tablet {
+        font-size: 1.75rem;
+      }
+    }
+    &--correct {
+      color: lightgreen;
+    }
+    &--incorrect {
+      color: red;
+    }
+    &--half-width {
+      width: 50%;
+    }
+  }
+  &__right-and-wrong {
+    display: flex;
+  }
+}
+
+.game {
+  background-color: $pokemon-white;
+  background-image: url(../assets/pokeballs.png);
+  background-size: 20%;
+  &__container {
+    background-color: $pokemon-ultra-white;
+    display: flex;
+    width: $mobile-container;
+    min-height: 700px;
+    margin: 0 auto;
+    @include tablet {
+      width: $tablet-container;
+    }
+    @include desktop {
+      width: $desktop-container;
+    }
+  }
+  &__pkmn-card {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    min-height: 400px;
+    margin: auto;
+    border-radius: 10px;
+    background-color: $fire-type;
+    align-items: center;
+    filter: drop-shadow(0 0.25rem 0.25rem $pokemon-black);
+    padding-bottom: 1rem;
+    @include tablet {
+      width: 350px;
+      min-height: 500px;
+    }
+  }
+  &__pkmn-img--container {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    background-color: $pokemon-ultra-white;
+    @include tablet {
+      width: 300px;
+      height: 200px;
+    }
+  }
+  &__pkmn-img {
+    max-width: 100%;
+    min-height: 100%;
+  }
+  &__pkmn-form {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    margin-bottom: 1rem;
+    align-items: center;
+    @include tablet {
+      width: 300px;
+    }
+  }
+  &__pkmn-input {
+    padding: 0.25rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    border-radius: 4px;
+    @include tablet {
+      padding: 0.25rem;
+      margin: 1rem;
+    }
+  }
+  &__pkmn-submit {
+    padding: 0.25rem;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: $pokemon-white;
+    &:hover {
+      background-color: darken($color: $pokemon-white, $amount: 5);
+    }
+  }
+  &__pkmn-pokedex {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    padding: 1rem;
+    background-color: lighten($color: $fire-type, $amount: 25);
+    margin-bottom: 1rem;
+    border: 1px solid $pokemon-black;
+    @include tablet {
+      width: 268px;
+      padding: 1rem;
+    }
+  }
+  &__pkmn-type-info {
+    display: flex;
+    margin: 0 0 0.25rem 0;
+  }
+  &__pkmn-heading {
+    margin: 0 0.25rem 0 0;
+  }
+  &__pkmn-type {
+    margin: 0;
+    font-weight: bold;
+  }
+  &__pkmn-info {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.15rem;
+  }
+  &__next-button {
+    padding: 0.25rem;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: $pokemon-white;
+    &:hover {
+      background-color: darken($color: $pokemon-white, $amount: 5);
+    }
+  }
+}
+
+.footer {
+  background-color: $pokemon-black;
+  &__container {
+    display: flex;
+    width: $mobile-container;
+    margin: 0 auto;
+    justify-content: flex-end;
+    @include tablet {
+      width: $tablet-container;
+    }
+    @include desktop {
+      width: $desktop-container;
+    }
+  }
+  &__credits {
+    display: flex;
+    width: 200px;
+  }
+  &__developer {
+    margin: 1rem;
+    text-decoration: none;
+    color: $pokemon-white;
+  }
+}

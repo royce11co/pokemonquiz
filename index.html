@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who's That Pokemon?</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <article class="header__container">
+            <h2 class="header__title">Who's That Pokemon?</h2>
+            <nav class="primary-nav">
+                <a href="./index.html" class="primary-nav__link">Home Page</a>
+                <a href="./pages/poke-card.html" class="primary-nav__link">Random Card</a>
+            </nav>
+        </article>
+        <img src="./assets/pikachu-running.gif" alt="pixelated pikachu running" class="header__pikachu">
+    </header>
+
+    <div class="instructions">
+        <article class="instructions__container">
+            <p class="instructions__text instructions__text--first-line">Welcome to the wonderful world of Pokemon!</p>
+            <p class="instructions__text">Here you will use your knowledge to guess who the Pokemon is below, and learn
+                a little bit about who they are!</p>
+            <p class="instructions__text">Simply type in the name of Pokemon that is appearing on screen into the field
+                and click "Submit Answer" when you're ready! </p>
+            <div class="instructions__right-and-wrong">
+                <p class="instructions__text instructions__text--half-width">If you are <span
+                        class=instructions__text--correct>correct</span>, you
+                    will
+                    see the Pokemon's shiny form!</p>
+                <p class="instructions__text instructions__text--half-width">If you are <span
+                        class=instructions__text--incorrect>incorrect</span>, the
+                    Pokemon will escape and you will need to move onto
+                    the next guess!</p>
+            </div>
+        </article>
+    </div>
+
+    <div class="game">
+        <article class="game__container">
+            <section class="game__pkmn-card">
+                <div class="game__pkmn-img--container">
+                    <img class="game__pkmn-img" src="" alt="sprite">
+                </div>
+                <form id="submit-form">
+                    <div class="game__pkmn-form">
+                        <input class="game__pkmn-input" type="text" name="enterResponse"
+                            placeholder="Enter your guess here">
+                        <button type="submit" class="game__pkmn-submit">Submit Answer</button>
+                    </div>
+                </form>
+                <div class="game__pkmn-pokedex">
+                    <div class="game__pkmn-type-info">
+                        <p class="game__pkmn-heading">Type: </p>
+                        <p class="game__pkmn-type">Normal</p>
+                    </div>
+                    <p class="game__pkmn-heading">PokeDex Entry</p>
+                    <p class="game__pkmn-info">This Pokemon is a cool guy because he can shoot fire out of his mouth
+                        and stuff.</p>
+                </div>
+                <div>
+                    <button type="onclick" class="refresh-page game__next-button">Next Pokemon</button>
+                </div>
+            </section>
+        </article>
+    </div>
+
+    <footer class="footer">
+        <article class="footer__container">
+            <section class="footer__credits">
+                <a href="https://www.linkedin.com/in/royce-co/" class="footer__developer">Royce Co</a>
+                <a href="https://www.linkedin.com/in/jameskoutrakos/" class="footer__developer">James Koutrakos</a>
+            </section>
+        </article>
+    </footer>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/typeColor.js"></script>
+</body>
+
+</html>
